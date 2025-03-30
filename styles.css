@@ -1,0 +1,448 @@
+/* Estilo global*/
+:root {
+    --background-color: #3a3f47; /* Variável para manter consistência da cor */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #3a3f47;
+    padding: 0.9375rem 2.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Ajustado para: logo, nav, icons */
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    position: relative; /* Garante que a sombra fique sobre outros elementos */
+    z-index: 1000; /* Garante que o header e sua sombra fiquem acima de outros elementos */
+}
+
+.main-container {
+    background-color: var(--background-color);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+    justify-content: center;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o texto e a seta */
+    justify-content: center;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover{
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem; 
+}
+
+nav a.active{
+    text-decoration: none;
+    color: white;
+}
+
+nav a.active::after {
+    width: 100%;
+    background-color: #FFD700;
+}
+
+nav a i {
+    font-size: 0.75rem; /* Tamanho menor para a seta */
+    margin-top: 0.125rem; /* Ajuste fino do alinhamento vertical */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff; /* Cor azul */
+}
+/* Opcional: animação no hover */
+nav a:hover i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+    color: #007bff; /* Cor azul */
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0.125rem; /* 2px */
+    background-color: #FFD700; /* Cor amarela */
+    transition: width 0.3s ease-in-out;
+    
+}
+
+nav a:hover i {
+    color: #007bff; /* Cor azul */
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+nav a:hover::after {
+    width: 100%;
+}
+
+.right-icons{
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.icon{
+    color: white;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.icon:hover {
+    color: #ffa500;
+    transition: color 0.3s ease;
+}
+
+.faq-icon {
+    color: #ff6b6b; /* Cor diferenciada para o ícone de FAQ */
+    background-color: rgba(255, 107, 107, 0.1); /* Fundo sutil */
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-icon:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.fa-heart:hover {
+    color: #ff4444;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.cart-icon{
+    position: relative;
+}
+
+.cart-count{
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.75rem;
+}
+
+.search-icon{
+    margin-right: 0.625rem;
+}
+
+/* Primeira seção */
+.main-container{
+    background-color: #1a1a1a; /* Cor de fundo escura para o container */
+    min-height: 100vh;
+    padding: 2rem; 
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 4rem); /* Altura total menos o padding do container */
+    background-image: url('caminho-para-imagem-pistolas.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    overflow: hidden; /* Para manter o border-radius com o overlay */
+}
+hero{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("/img/imagem\ background.jpg");
+    background-size: cover;
+    background-position: center right; /* Posiciona a imagem mais à direita */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.95) 0%,    /* Mais escuro à esquerda */
+        rgba(0, 0, 0, 0.85) 40%,    /* Gradualmente mais claro */
+        rgba(0, 0, 0, 0.6) 100%     /* Mais transparente à direita */
+    ),
+    rgba(0, 0, 0, 0.3);    
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 40rem;
+    padding-left: 2rem;
+}
+
+.subtitle {
+    display: block;
+    font-size: 0.875rem;
+    color: #D4D61C;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 3.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: #ffffff;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 35rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #D4D61C;
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #c1c319;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 2rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* seção carrossel */
+.carousel-section {
+    padding: 2rem;
+}
+
+.carousel {
+    position: relative;
+    background-color: #000000;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.carousel-slide {
+    padding: 4rem;
+}
+
+.slide-content {
+    max-width: 600px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #D4D61C;
+    color: #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.slide-title {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.slide-subtitle {
+    color: #D4D61C;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.slide-description {
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 80%;
+}
+
+.slide-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #D4D61C;
+    color: #000000;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.slide-button:hover {
+    background-color: #c1c319;
+    transform: translateY(-2px);
+}
+
+.slide-button i {
+    font-size: 0.875rem;
+}
+
+/* Controles do carrossel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-control:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-control.prev {
+    left: 1rem;
+}
+
+.carousel-control.next {
+    right: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carousel-slide {
+        padding: 2rem;
+    }
+
+    .slide-title {
+        font-size: 2rem;
+    }
+
+    .slide-description {
+        max-width: 100%;
+    }
+}
