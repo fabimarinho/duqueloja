@@ -181,9 +181,10 @@ nav a:hover::after {
     margin-right: 0.625rem;
 }
 
-/* Primeira seção */
+/*Seção Precisão e Segurança */
 .main-container{
-    background-color: #1a1a1a; /* Cor de fundo escura para o container */
+
+    background-color: #3a3f47;    
     min-height: 100vh;
     padding: 2rem; 
 }
@@ -235,7 +236,8 @@ hero{
     position: relative;
     z-index: 1;
     max-width: 40rem;
-    padding-left: 2rem;
+    padding-left: 4rem; /* Aumentado de 2rem para 4rem para alinhar com os slides */
+    margin-left: 4rem; /* Adicionado para corresponder ao slide-content */
 }
 
 .subtitle {
@@ -344,6 +346,11 @@ hero{
         padding: 0 2rem;
     }
 
+    .hero-content {
+        padding-left: 2rem; /* Reduzido para telas menores */
+        margin-left: 2rem; /* Reduzido para telas menores */
+    }
+
     .title {
         font-size: 2.5rem;
     }
@@ -373,11 +380,17 @@ hero{
     background-color: #000000;
     border-radius: 0.5rem;
     overflow: hidden;
-    min-height: 400px;
+    min-height: 600px;
 }
 
 .carousel-slide {
-    padding: 4rem;
+    padding: 6rem 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
 }
 
 .slide-content {
@@ -470,28 +483,14 @@ hero{
     right: 1rem;
 }
 
-.carousel {
-    position: relative;
-    background-color: #000000;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    min-height: 400px;
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 4rem;
-    will-change: transform;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .carousel-slide {
-        padding: 2rem;
+        padding: 3rem 2rem;
+    }
+    
+    .carousel {
+        min-height: 500px;
     }
 
     .slide-title {
