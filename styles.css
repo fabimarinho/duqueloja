@@ -10,6 +10,7 @@
 }
 
 body {
+    padding-top: 4.5rem; /* Altura do header + um pouco de espaço */
     background-color: var(--background-color);
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -23,7 +24,10 @@ header {
     align-items: center;
     gap: 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    position: relative; /* Garante que a sombra fique sobre outros elementos */
+    position: fixed; /* Mudado de relative para fixed */
+    top: 0; /* Fixar no topo */
+    left: 0; /* Fixar na esquerda */
+    right: 0; /* Fixar na direita */
     z-index: 1000; /* Garante que o header e sua sombra fiquem acima de outros elementos */
 }
 
@@ -31,7 +35,7 @@ header {
     background-color: #3a3f47;    
     min-height: 100vh;
     padding: 0 2rem;
-    margin-top: 3rem; /* Adicionado espaço entre o header e o container */
+    margin-top: 0; /* Removido margin-top pois já temos padding-top no body */
 }
 
 .logo{
@@ -1164,4 +1168,45 @@ nav a:hover::after {
 
 .product-card:hover .product-hover-message {
     opacity: 1;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #ffffff;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.whatsapp-button i {
+    font-size: 1.75rem;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .whatsapp-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .whatsapp-button i {
+        font-size: 1.5rem;
+    }
 }
