@@ -11,51 +11,418 @@
     <header>
          <img src="/img/Frame 99.png" class="logo">
          <nav>
-            <a href="/loja" >
-                Loja
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <a href="/pistolas">
-                Pistolas
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <a href="/revolveres">
-                Revólveres
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <a href="/espingardas">
-                Espingardas
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <a href="/acessorios">
-                Acessórios
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <a href="/treinamento">
-                Treinamento
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <a href="/contato">
-                Contato
-                <i class="fas fa-chevron-down"></i>
-            </a>
+            <div class="nav-item">
+                <a href="/loja" class="nav-link">
+                    Loja
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="/todos-produtos" class="dropdown-item main-item">
+                        <span>Todos os Produtos</span>
+                        <i class="fas fa-shopping-bag"></i>
+                    </a>
+                    <a href="/mais-vendidos" class="dropdown-item main-item">
+                        <span>Mais Vendidos</span>
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <a href="/lancamentos" class="dropdown-item main-item">
+                        <span>Lançamentos</span>
+                        <i class="fas fa-tag"></i>
+                    </a>
+                    <a href="/promocoes" class="dropdown-item main-item">
+                        <span>Promoções</span>
+                        <i class="fas fa-percent"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/pistolas" class="nav-link">
+                    Pistolas
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu pistolas-menu">
+                    <div class="dropdown-content">
+                        <div class="menu-items">
+                            <div class="dropdown-header">
+                                <i class="fas fa-gun"></i>
+                                <span>Todas as Pistolas</span>
+                            </div>
+                            <div class="menu-links">
+                                <a href="/pistolas/9mm" class="dropdown-item" data-image="/img/pistola-9mm.jpg">
+                                    <span>Pistola 9mm</span>
+                                </a>
+                                <a href="/pistolas/40" class="dropdown-item" data-image="/img/pistola-40.jpg">
+                                    <span>Pistola .40</span>
+                                </a>
+                                <a href="/pistolas/45" class="dropdown-item" data-image="/img/pistola-45.jpg">
+                                    <span>Pistola .45</span>
+                                </a>
+                                <a href="/pistolas/compactas" class="dropdown-item" data-image="/img/pistola-compacta.jpg">
+                                    <span>Pistolas Compactas</span>
+                                </a>
+                                <a href="/pistolas/full-size" class="dropdown-item" data-image="/img/pistola-full-size.jpg">
+                                    <span>Pistolas Full-Size</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="preview-container">
+                            <div class="preview-image">
+                                <i class="fas fa-crosshairs aimed-icon"></i>
+                                <img src="" alt="Pistola">
+                                <p class="preview-text">Passe o mouse sobre uma categoria</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/revolveres" class="nav-link">
+                    Revólveres
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu revolveres-menu">
+                    <div class="dropdown-content">
+                        <div class="menu-items">
+                            <div class="dropdown-header">
+                                <i class="fas fa-gun"></i>
+                                <span>Todos os Revólveres</span>
+                            </div>
+                            <div class="menu-links">
+                                <a href="/revolveres/6-tiros" class="dropdown-item revolver-item">
+                                    <div class="revolver-info">
+                                        <i class="fas fa-sync"></i>
+                                        <div class="revolver-details">
+                                            <span class="revolver-title">Revólveres 6 tiros</span>
+                                            <span class="revolver-capacity">Capacidade: 6 tiros</span>
+                                        </div>
+                                    </div>
+                                    <img src="/img/revolver-6tiros.png" class="revolver-preview" alt="Revólver 6 tiros">
+                                </a>
+                                <a href="/revolveres/5-tiros" class="dropdown-item revolver-item">
+                                    <div class="revolver-info">
+                                        <i class="fas fa-sync"></i>
+                                        <span>Revólveres 5 tiros</span>
+                                    </div>
+                                </a>
+                                <a href="/revolveres/38-spl" class="dropdown-item revolver-item">
+                                    <div class="revolver-info">
+                                        <span class="caliber-dot blue"></span>
+                                        <span>Revólveres .38 SPL</span>
+                                    </div>
+                                </a>
+                                <a href="/revolveres/357-magnum" class="dropdown-item revolver-item">
+                                    <div class="revolver-info">
+                                        <span class="caliber-dot red"></span>
+                                        <span>Revólveres .357 Magnum</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/espingardas" class="nav-link">
+                    Espingardas
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu espingardas-menu">
+                    <div class="dropdown-content">
+                        <div class="menu-items">
+                            <div class="dropdown-header">
+                                <span>Todas as Espingardas</span>
+                                <p class="header-description">Conheça todos os modelos disponíveis em nosso estoque</p>
+                            </div>
+                            <div class="menu-links">
+                                <a href="/espingardas/12ga" class="espingarda-item">
+                                    <div class="espingarda-info">
+                                        <span class="caliber-dot yellow"></span>
+                                        <div class="espingarda-details">
+                                            <span class="espingarda-title">Espingardas 12GA</span>
+                                            <span class="espingarda-desc">Calibre 12, ideal para defesa e práticas esportivas</span>
+                                            <span class="tag">12GA</span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="/espingardas/pump" class="espingarda-item">
+                                    <div class="espingarda-info">
+                                        <i class="fas fa-sync"></i>
+                                        <div class="espingarda-details">
+                                            <span class="espingarda-title">Espingardas Pump-Action</span>
+                                            <span class="espingarda-desc">Modelos de ação por bombeamento, confiáveis e tradicionais</span>
+                                            <span class="tag">Pump-Action</span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="/espingardas/semiautomaticas" class="espingarda-item">
+                                    <div class="espingarda-info">
+                                        <i class="fas fa-bolt"></i>
+                                        <div class="espingarda-details">
+                                            <span class="espingarda-title">Espingardas Semiautomáticas</span>
+                                            <span class="espingarda-desc">Recarga automática para tiros rápidos e eficientes</span>
+                                            <span class="tag">Semiautomática</span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="/espingardas/cano-duplo" class="espingarda-item">
+                                    <div class="espingarda-info">
+                                        <i class="fas fa-equals"></i>
+                                        <div class="espingarda-details">
+                                            <span class="espingarda-title">Espingardas de Cano Duplo</span>
+                                            <span class="espingarda-desc">O modelo tradicional, clássico e confiável</span>
+                                            <span class="tag">Cano Duplo</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="preview-container">
+                            <div class="preview-image">
+                                <img src="" alt="Espingarda">
+                                <p class="preview-text">Passe o mouse por cima da imagem, para ver mais detalhes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/acessorios" class="nav-link">
+                    Acessórios
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu acessorios-menu">
+                    <div class="acessorios-grid">
+                        <a href="/acessorios/todos" class="acessorio-card">
+                            <div class="acessorio-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="acessorio-info">
+                                <h3>Todos os Acessórios</h3>
+                                <p>Encontre todos os acessórios para personalizar sua arma</p>
+                            </div>
+                        </a>
+
+                        <a href="/acessorios/miras" class="acessorio-card">
+                            <div class="acessorio-icon">
+                                <i class="fas fa-crosshairs"></i>
+                            </div>
+                            <div class="acessorio-info">
+                                <h3>Miras e Ópticas</h3>
+                                <p>Encontre todos os acessórios para personalizar sua arma</p>
+                            </div>
+                        </a>
+
+                        <a href="/acessorios/carregadores" class="acessorio-card">
+                            <div class="acessorio-icon">
+                                <i class="fas fa-circle-dot"></i>
+                            </div>
+                            <div class="acessorio-info">
+                                <h3>Carregadores e Munição</h3>
+                                <p>Encontre todos os acessórios para personalizar sua arma</p>
+                            </div>
+                        </a>
+
+                        <a href="/acessorios/coldres" class="acessorio-card">
+                            <div class="acessorio-icon">
+                                <i class="fas fa-shield"></i>
+                            </div>
+                            <div class="acessorio-info">
+                                <h3>Coldres e Portes</h3>
+                                <p>Encontre todos os acessórios para personalizar sua arma</p>
+                            </div>
+                        </a>
+
+                        <a href="/acessorios/manutencao" class="acessorio-card">
+                            <div class="acessorio-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="acessorio-info">
+                                <h3>Manutenção e Limpeza</h3>
+                                <p>Encontre todos os acessórios para personalizar sua arma</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/treinamento" class="nav-link">
+                    Treinamento
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu treinamentos-menu">
+                    <div class="container">
+                        <div class="card">
+                            <h2><span>🔰</span>Todos os Cursos</h2>
+                            <p>Lista completa dos treinamentos disponíveis para todos os níveis</p>
+                            <a href="/cursos" class="btn">Saiba mais</a>
+                        </div>
+                        
+                        <div class="card">
+                            <h2>
+                                <span>🔰</span>
+                                Curso de Tiro Básico 
+                                <span class="level yellow">Iniciante</span>
+                            </h2>
+                            <p>Aprenda os fundamentos do manuseio seguro de armas de fogo</p>
+                            <a href="/curso-basico" class="btn">Saiba mais</a>
+                        </div>
+                        
+                        <div class="card">
+                            <h2>
+                                <span>🔰</span>
+                                Curso de Tiro Avançado 
+                                <span class="level green">Avançado</span>
+                            </h2>
+                            <p>Aperfeiçoe suas técnicas e desenvolva precisão em situações variadas</p>
+                            <a href="/curso-avancado" class="btn">Saiba mais</a>
+                        </div>
+                        
+                        <div class="card">
+                            <h2>
+                                <span>🔰</span>
+                                Curso de Defesa Pessoal 
+                                <span class="level orange">Intermediário</span>
+                            </h2>
+                            <p>Estratégias práticas para proteção individual em diversas situações</p>
+                            <a href="/defesa-pessoal" class="btn">Saiba mais</a>
+                        </div>
+                        
+                        <div class="card">
+                            <h2>
+                                <span>🔰</span>
+                                Treinamento para Caçadores 
+                                <span class="level gray">Especializado</span>
+                            </h2>
+                            <p>Técnicas específicas para caça esportiva e responsável</p>
+                            <a href="/cacadores" class="btn">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="contato.html" class="nav-link">
+                    Contato
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu contato-menu">
+                    <div class="contato-grid">
+                        <!-- Suporte -->
+                        <a href="/suporte" class="contato-card">
+                            <div class="contato-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contato-info">
+                                <h3>Suporte para dúvidas e reclamações</h3>
+                                <p class="phone-number">(21) 5555-5555</p>
+                                <p class="horario">Segunda a sexta: 9h às 18h</p>
+                            </div>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/5500999999999" class="contato-card">
+                            <div class="contato-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contato-info">
+                                <h3>Atendimento rápido via WhatsApp</h3>
+                                <button class="iniciar-conversa">Iniciar conversa</button>
+                            </div>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="/contato/email" class="contato-card">
+                            <div class="contato-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contato-info">
+                                <h3>Formulário para contato por e-mail</h3>
+                                <button class="acessar">Acessar</button>
+                            </div>
+                        </a>
+
+                        <!-- Mapa -->
+                        <a href="/localizacao" class="contato-card">
+                            <div class="contato-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contato-info">
+                                <h3>Mapa interativo com endereço</h3>
+                                <button class="acessar">Acessar</button>
+                            </div>
+                        </a>
+
+                        <!-- FAQ -->
+                        <a href="faq.html" class="contato-card">
+                            <div class="contato-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="contato-info">
+                                <h3>Respostas para dúvidas comuns</h3>
+                                <button class="acessar">Acessar</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </nav>
          <div class="right-icons">
-            <a href="/search" class="icon search-icon">
-                <i class="fas fa-search"></i>
-            </a>
-            <a href="/conta" class="icon">
-                <i class="fas fa-user"></i>
-            </a>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar produtos...">
+                <a href="/search" class="icon search-icon">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+            <div class="user-container">
+                <a href="login.html" class="icon user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
             <a href="/wishlist" class="icon">
                 <i class="fas fa-heart"></i>
+                <div class="wishlist-menu">
+                    <div class="wishlist-container">
+                        <h2 class="wishlist-title">
+                            Lista de Desejos (0)
+                        </h2>
+                        
+                        <div class="wishlist-items">
+                            <div class="wishlist-item">
+                                <div class="item-image">
+                                    <img src="/img/pistola-glock.jpg" alt="Pistola Glock G19 Gen5">
+                                </div>
+                                <div class="item-info">
+                                    <h3>Pistola Glock G19 Gen5</h3>
+                                    <p class="price">R$ 4.950,00</p>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="remove-btn">
+                                        Remover
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <button class="add-to-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/" class="view-all-btn">
+                            <i class="fas fa-link"></i>
+                            Ver lista Completa
+                        </a>
+                    </div>
+                </div>
             </a>
-            <a href="/favoritos" class="icon">
+            <a href="cart.html" class="icon">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">2</span>
+                <span class="cart-count">0</span>
             </a>
-            <a href="/faq" class="icon faq-icon">
-                <i class="fas fa-question-circle"></i>
+            <a href="faq.html" class="icon faq-icon">
+                <i class="fas fa-circle-question"></i>
             </a>
          </div>
     </header>
@@ -112,7 +479,7 @@
                     </a>
                 </div>
             </div>
-    
+
             <!-- Slide 3 -->
             <div class="carousel-slide">
                 <div class="slide-content">
@@ -128,7 +495,7 @@
                     </a>
                 </div>
             </div>
-    
+
             <!-- Controles do carrossel -->
             <button class="carousel-control prev">
                 <i class="fas fa-chevron-left"></i>

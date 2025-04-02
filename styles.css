@@ -10,25 +10,24 @@
 }
 
 body {
-    padding-top: 4.5rem; /* Altura do header + um pouco de espaço */
+    padding-top: 60px; /* Ajustado para o novo tamanho do header */
     background-color: var(--background-color);
     font-family: Arial, sans-serif;
     min-height: 100vh;
 }
 
 header {
-    background-color: #3a3f47;
-    padding: 0.9375rem 2.5rem;
-    display: grid;
-    grid-template-columns: auto 1fr auto; /* Ajustado para: logo, nav, icons */
+    background-color: var(--background-color); /* Usando a mesma cor do body */
+    padding: 0.75rem 2rem; /* Padding reduzido para ficar mais compacto */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    position: fixed; /* Mudado de relative para fixed */
-    top: 0; /* Fixar no topo */
-    left: 0; /* Fixar na esquerda */
-    right: 0; /* Fixar na direita */
-    z-index: 1000; /* Garante que o header e sua sombra fiquem acima de outros elementos */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .main-container {
@@ -38,152 +37,152 @@ header {
     margin-top: 0; /* Removido margin-top pois já temos padding-top no body */
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+.logo {
+    height: 55px; /* Aumentado de 45px para 55px */
+    width: auto;
+    object-fit: contain;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
-    gap: 1.875rem;
-    justify-content: center;
+    gap: 2.5rem; /* Espaçamento entre itens do menu */
+    margin: 0 2rem;
 }
 
-nav a{
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
-    position: relative;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Espaço entre o texto e a seta */
-    justify-content: center;
-    padding-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-nav a:hover{
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    position: relative;
-    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding-bottom: 0.5rem; 
-}
-
-nav a.active{
-    text-decoration: none;
-    color: white;
-}
-
-nav a.active::after {
-    width: 100%;
-    background-color: #FFD700;
-}
-
-nav a i {
-    font-size: 0.75rem; /* Tamanho menor para a seta */
-    margin-top: 0.125rem; /* Ajuste fino do alinhamento vertical */
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    color: #007bff; /* Cor azul */
-}
-/* Opcional: animação no hover */
-nav a:hover i {
-    transform: rotate(180deg);
-    transition: transform 0.3s ease;
-    color: #007bff; /* Cor azul */
-    transform: rotate(180deg);
-    transition: all 0.3s ease;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0.125rem; /* 2px */
-    background-color: #FFD700; /* Cor amarela */
-    transition: width 0.3s ease-in-out;
-    
-}
-
-nav a:hover i {
-    color: #007bff; /* Cor azul */
-    transform: rotate(180deg);
-    transition: all 0.3s ease;
-}
-nav a:hover::after {
-    width: 100%;
-}
-
-.right-icons{
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    justify-content: flex-end;
-    margin-left: auto;
-}
-
-.icon{
-    color: white;
-    font-size: 1.25rem;
-    text-decoration: none;
-}
-
-.icon:hover {
-    color: #ffa500;
+    padding: 0.5rem 0;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
-.faq-icon {
-    color: #ff6b6b; /* Cor diferenciada para o ícone de FAQ */
-    background-color: rgba(255, 107, 107, 0.1); /* Fundo sutil */
-    padding: 0.5rem;
-    border-radius: 50%;
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #A9BFDF; /* Atualizado para a cor correta */
+    border: 2px solid #D4D61C;
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove o hover e adiciona estilo para o estado ativo */
+.nav-item.active .nav-link {
+    color: #007bff;
+}
+
+.nav-item.active .nav-link i {
+    transform: rotate(180deg);
+}
+
+.main-item {
+    display: none;
+}
+
+.right-icons {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 1.25rem; /* Espaçamento reduzido entre os ícones */
 }
 
-.faq-icon:hover {
-    background-color: rgba(255, 107, 107, 0.2);
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
-
-.fa-heart:hover {
-    color: #ff4444;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
-
-.cart-icon{
+.icon {
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
     position: relative;
 }
 
-.cart-count{
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 0.125rem 0.375rem;
-    font-size: 0.75rem;
+.icon:hover {
+    color: #D4D61C;
 }
 
-.search-icon{
-    margin-right: 0.625rem;
+/* Estilo específico para o ícone FAQ */
+.faq-icon {
+    color: #ff6b6b; /* Cor vermelha para o FAQ */
+}
+
+.faq-icon:hover {
+    color: #D4D61C;
+}
+
+/* Estilo específico para o ícone heart */
+.fa-heart:hover {
+    color: #ff6b6b !important;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #D4D61C;
+    color: #000000;
+    font-size: 0.625rem; /* Tamanho menor para o contador */
+    font-weight: 600;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.75rem;
+    min-width: 16px;
+    text-align: center;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 200px; /* Largura fixa inicial */
+    border: none;
+    border-bottom: 1px solid #4B5563;
+    background-color: transparent;
+    padding: 0.25rem 0;
+    padding-left: 1.75rem;
+    font-size: 0.875rem;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+    color: #9CA3AF;
+    font-size: 0.875rem;
+}
+
+.search-container.active .search-input {
+    width: 250px;
+    opacity: 1;
+}
+
+.search-icon {
+    color: #ffffff; /* Mudado para branco */
+    padding: 2px;
+    font-size: 0.875rem;
+    position: absolute;
+    left: 0.5rem;
+    z-index: 2;
+}
+
+.search-icon:hover {
+    color: #D4D61C; /* Hover em amarelo */
 }
 
 .hero {
@@ -356,7 +355,8 @@ nav a:hover::after {
 }
 /* seção carrossel */
 .carousel-section {
-    padding: 0 2rem; /* Removido o padding top, mantendo apenas nas laterais */
+    padding: 0 2rem;
+    margin-top: 1rem; /* Reduzido de 2rem para 1rem */
 }
 
 .carousel {
@@ -365,21 +365,31 @@ nav a:hover::after {
     border-radius: 0.5rem;
     overflow: hidden;
     min-height: 600px;
-    margin-top: -12rem; /* Aumentado de -10rem para -12rem para aproximar mais as seções */
+    margin-top: -14rem; /* Aumentado de -12rem para -14rem para aproximar mais as seções */
 }
 
 .carousel-slide {
-    padding: 6rem 4rem;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    will-change: transform;
+    opacity: 0;
+    visibility: hidden; /* Adicionado para melhor controle da visibilidade */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    padding: 6rem 4rem;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .slide-content {
     max-width: 600px;
+    position: relative;
+    z-index: 2;
 }
 
 .tag {
@@ -454,6 +464,7 @@ nav a:hover::after {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    z-index: 3; /* Aumentado para garantir que fique acima do conteúdo */
 }
 
 .carousel-control:hover {
@@ -461,11 +472,11 @@ nav a:hover::after {
 }
 
 .carousel-control.prev {
-    left: 1rem;
+    left: 2rem;
 }
 
 .carousel-control.next {
-    right: 1rem;
+    right: 2rem;
 }
 
 /* Responsividade */
@@ -1209,4 +1220,2124 @@ nav a:hover::after {
     .whatsapp-button i {
         font-size: 1.5rem;
     }
+}
+
+/* Estilo específico para o menu de pistolas */
+.pistolas-menu {
+    background-color: #A9BFDF; /* Cor atualizada conforme especificado */
+    border: 2px solid #D4D61C;
+    min-width: 600px;
+    padding: 1.5rem;
+}
+
+.pistolas-menu .dropdown-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.pistolas-menu .menu-items {
+    flex: 1;
+}
+
+.pistolas-menu .dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #D4D61C;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.pistolas-menu .dropdown-header i {
+    font-size: 1.125rem;
+}
+
+.pistolas-menu .menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pistolas-menu .dropdown-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.pistolas-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.preview-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7A8BA3; /* Cor mais escura como na imagem */
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.preview-image {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aimed-icon {
+    font-size: 2rem;
+    color: #D4D61C; /* Cor amarela para o ícone */
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.preview-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none; /* Inicialmente oculto */
+}
+
+.preview-text {
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Quando houver hover no item do menu */
+.pistolas-menu .dropdown-item:hover ~ .preview-container .aimed-icon {
+    display: none;
+}
+
+.pistolas-menu .dropdown-item:hover ~ .preview-container img {
+    display: block;
+}
+
+/* Remover display: none dos elementos necessários */
+.dropdown-header,
+.bullet-point,
+.dropdown-content {
+    display: initial;
+}
+
+/* Estilo específico para o menu de loja */
+.loja-menu {
+    display: none;
+}
+
+/* Restaurar os estilos anteriores */
+.main-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.main-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.main-item span {
+    font-weight: 500;
+}
+
+.main-item i {
+    font-size: 1.125rem;
+    opacity: 0.7;
+}
+
+/* Espaçamento entre os itens */
+.dropdown-item:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo específico para o menu de revólveres */
+.revolveres-menu {
+    background-color: #A9BFDF;
+    border: 2px solid #D4D61C;
+    min-width: 400px;
+    padding: 1.5rem;
+}
+
+.revolveres-menu .dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #D4D61C;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.revolver-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.revolver-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.revolver-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.revolver-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.revolver-title {
+    font-weight: 500;
+}
+
+.revolver-capacity {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.revolver-preview {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.caliber-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.caliber-dot.blue {
+    background-color: #007bff;
+}
+
+.caliber-dot.red {
+    background-color: #dc3545;
+}
+
+.fas.fa-sync {
+    color: #D4D61C;
+    font-size: 1rem;
+}
+
+/* Estilo específico para o menu de espingardas */
+.espingardas-menu {
+    background-color: #A9BFDF;
+    border: 2px solid #D4D61C;
+    min-width: 800px;
+    padding: 1.5rem;
+}
+
+.espingardas-menu .dropdown-header {
+    margin-bottom: 1.5rem;
+}
+
+.espingardas-menu .dropdown-header span {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.header-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.espingarda-item {
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 0.75rem;
+}
+
+.espingarda-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.espingarda-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.espingarda-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.espingarda-title {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.espingarda-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.caliber-dot.yellow {
+    background-color: #D4D61C;
+}
+
+.fas.fa-sync, .fas.fa-plus {
+    color: #D4D61C;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.preview-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7A8BA3;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-left: 2rem;
+}
+
+.preview-image {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-image img {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.preview-text {
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Estilo específico para o menu de acessórios */
+.acessorios-menu {
+    background-color: #A9BFDF;
+    border: 2px solid #D4D61C;
+    min-width: 800px;
+    padding: 1.5rem;
+}
+
+.acessorios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.acessorio-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.acessorio-card:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.acessorio-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(169, 191, 223, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acessorio-icon i {
+    font-size: 1.25rem;
+    color: #A9BFDF;
+}
+
+.acessorio-info {
+    flex: 1;
+}
+
+.acessorio-info h3 {
+    color: #2A2E36;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.acessorio-info p {
+    color: rgba(42, 46, 54, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+/* Estilo específico para o menu de treinamento */
+.treinamento-menu {
+    background-color: #162B3C; /* Azul mais escuro */
+    border: 2px solid #D4D61C;
+    min-width: 450px;
+    padding: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.treinamento-menu .container {
+    width: 100%;
+}
+
+.treinamento-menu .card {
+    background-color: transparent;
+    color: white;
+    padding: 15px;
+    border: 1px solid #D4D61C; /* Borda mais fina */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.treinamento-menu .card:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Efeito hover sutil */
+}
+
+/* Mantendo os outros estilos... */
+.treinamento-menu .card h2 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.treinamento-menu .card h2 span {
+    margin-right: 10px;
+}
+
+.treinamento-menu .level {
+    margin-left: auto;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.treinamento-menu .btn {
+    display: inline-block;
+    background-color: #D4D61C;
+    color: #000000;
+    padding: 8px 12px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.treinamento-menu .btn:hover {
+    background-color: #e6c200;
+}
+
+.treinamento-menu .yellow { background-color: #ffd700; color: #0f2c52; }
+.treinamento-menu .green { background-color: #28a745; }
+.treinamento-menu .orange { background-color: #ff8c00; }
+.treinamento-menu .gray { background-color: #6c757d; }
+
+/* Estilização da barra de rolagem */
+.treinamento-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.treinamento-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.treinamento-menu::-webkit-scrollbar-thumb {
+    background: #D4D61C;
+    border-radius: 4px;
+}
+
+.treinamento-menu::-webkit-scrollbar-thumb:hover {
+    background: #b3b516;
+}
+
+/* Estilo específico para o menu de contato */
+.contato-menu {
+    background-color: #A9BFDF;
+    border: 2px solid #D4D61C;
+    min-width: 600px;
+    padding: 1.5rem;
+}
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.contato-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contato-card:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.contato-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(169, 191, 223, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contato-icon i {
+    font-size: 1.25rem;
+    color: #A9BFDF;
+}
+
+.contato-info {
+    flex: 1;
+}
+
+.contato-info h3 {
+    color: #2A2E36;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.phone-number {
+    color: #007bff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.horario {
+    color: rgba(42, 46, 54, 0.7);
+    font-size: 0.875rem;
+}
+
+.iniciar-conversa {
+    background-color: #25D366;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.acessar {
+    background-color: #D4D61C;
+    color: #000000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.iniciar-conversa:hover,
+.acessar:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Ajuste para o último card ocupar toda a largura */
+.contato-card:last-child {
+    grid-column: 1 / -1;
+}
+
+/* Estilo para o dropdown de login */
+.user-container {
+    position: relative;
+}
+
+.login-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #2A2E36;
+    border: 2px solid #D4D61C;
+    border-radius: 12px;
+    padding: 2rem;
+    min-width: 400px;
+    margin-top: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-logo {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.login-header h2 {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.75rem;
+    padding-left: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+.login-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-size: 0.75rem;
+    white-space: nowrap; /* Garante que o texto fique em uma linha */
+}
+
+.remember-me input[type="checkbox"] {
+    margin: 0; /* Remove margens padrão do checkbox */
+}
+
+.remember-me span {
+    display: inline-block; /* Mantém o texto junto */
+}
+
+.forgot-password {
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    background-color: #D4D61C;
+    color: #000000;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-divider {
+    text-align: center;
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.login-divider span {
+    background-color: #2A2E36;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0 1rem;
+    font-size: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.login-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.google-login {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.google-login img {
+    height: 24px;
+}
+
+.secure-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    margin-top: 1rem;
+}
+
+.secure-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.signup-link a {
+    color: #D4D61C;
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
+
+/* Estilos específicos para a página de login */
+.login-page {
+    background-color: #000000; /* Alterado para preto */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0;
+    padding-top: 2rem;
+}
+
+.login-page .login-container {
+    position: relative;
+    top: auto;
+    right: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin: 0;
+    background-color: #1F2937; /* Ajustado para um tom mais escuro para combinar */
+    border: 2px solid #D4D61C;
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes para os elementos internos */
+.login-page .login-header {
+    margin-bottom: 2.5rem;
+}
+
+.login-page .login-logo {
+    height: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.login-page .login-header h2 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.login-page .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.login-page .input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.login-page .input-group input {
+    width: 100%;
+    padding: 1rem 2.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #1F3E51; /* Borda azul */
+    border-radius: 8px; /* Mais arredondamento */
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-page .input-group input:focus {
+    outline: none;
+    border-color: #2A5278; /* Azul mais claro no focus */
+    box-shadow: 0 0 0 2px rgba(42, 82, 120, 0.2); /* Efeito de glow suave */
+}
+
+.login-page .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.login-page .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.login-page .login-button {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.login-page .google-login {
+    padding: 1rem;
+}
+
+/* Remover os estilos de dropdown do container principal */
+.login-page body {
+    padding-top: 0;
+}
+
+/* Estilos para a página de contato */
+.contato-page {
+    background-color: #3a3f47;
+    min-height: calc(100vh - 120px); /* Altura total menos header e footer */
+    padding: 4rem 2rem;
+}
+
+.contato-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contato-page h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contato-description {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.contato-page .contato-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.contato-page .contato-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contato-page .contato-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contato-page .contato-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(169, 191, 223, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contato-page .contato-icon i {
+    font-size: 1.5rem;
+    color: #A9BFDF;
+}
+
+.contato-page .contato-info h3 {
+    color: #2A2E36;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.contato-page .phone-number {
+    color: #007bff;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.contato-page .horario {
+    color: rgba(42, 46, 54, 0.7);
+    font-size: 0.875rem;
+}
+
+.contato-page .iniciar-conversa {
+    background-color: #25D366;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.contato-page .acessar {
+    background-color: #D4D61C;
+    color: #000000;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.contato-page .iniciar-conversa:hover,
+.contato-page .acessar:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contato-page {
+        padding: 2rem 1rem;
+    }
+
+    .contato-page .contato-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contato-page .contato-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Estilos para a página de FAQ */
+.faq-page {
+    background-color: #000000; /* Alterado para preto */
+    min-height: calc(100vh - 120px);
+    padding: 4rem 2rem;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.faq-header h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.faq-header i {
+    color: #D4D61C;
+}
+
+.faq-description {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 1rem 0 2rem;
+}
+
+.faq-search {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.faq-search input {
+    width: 100%;
+    padding: 1rem 3rem;
+    background-color: #2A2E36;
+    border: 1px solid #1F3E51;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.faq-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.faq-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-section {
+    background-color: #1F2937; /* Cor mais escura para os cards */
+    border: 1px solid #D4D61C;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-topic {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-topic:hover {
+    background-color: rgba(255, 255, 255, 0.03); /* Hover mais sutil */
+}
+
+.faq-topic i {
+    color: #D4D61C;
+    font-size: 1.25rem;
+}
+
+.faq-topic span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.question-count {
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+}
+
+.faq-footer {
+    background-color: #1F2937; /* Mesma cor dos cards */
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.faq-footer h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.faq-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.whatsapp-btn, .email-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    color: #ffffff;
+}
+
+.email-btn {
+    background-color: #D4D61C;
+    color: #000000;
+}
+
+.support-hours {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.faq-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.faq-links a {
+    color: #D4D61C;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.faq-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .faq-page {
+        padding: 2rem 1rem;
+    }
+
+    .faq-buttons {
+        flex-direction: column;
+    }
+
+    .whatsapp-btn, .email-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Estilos para a página do carrinho */
+.cart-page {
+    background-color: #000000;
+    min-height: calc(100vh - 120px);
+    padding: 2rem;
+}
+
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cart-header {
+    margin-bottom: 2rem;
+}
+
+.back-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #D4D61C;
+}
+
+.cart-content {
+    margin-bottom: 4rem;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.empty-cart-icon {
+    font-size: 3rem;
+    color: #D4D61C;
+    margin-bottom: 1.5rem;
+}
+
+.empty-cart h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.empty-cart p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.continue-shopping {
+    display: inline-block;
+    background-color: #D4D61C;
+    color: #000000;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.continue-shopping:hover {
+    background-color: #c1c319;
+    transform: translateY(-2px);
+}
+
+.recommended-products {
+    margin-top: 4rem;
+}
+
+.recommended-products h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: #1F2937;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: relative;
+    padding: 1rem;
+}
+
+.product-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.stars {
+    color: #D4D61C;
+    font-size: 0.875rem;
+}
+
+.product-rating span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.product-info {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-info h4 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: #D4D61C;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart {
+    width: 100%;
+    background-color: #D4D61C;
+    color: #000000;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #c1c319;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-page {
+        padding: 1rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .empty-cart {
+        padding: 2rem 0;
+    }
+}
+
+/* Estilos adicionais para o carrinho com produtos */
+.cart-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.cart-title h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.items-count {
+    background-color: #D4D61C;
+    color: #000000;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+}
+
+.cart-main {
+    background-color: #1F2937;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cart-table {
+    margin-bottom: 2rem;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-info {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.product-info img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.product-details h4 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    background-color: #2A2E36;
+    border: 1px solid #D4D61C;
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.quantity-input {
+    width: 50px;
+    background-color: #2A2E36;
+    border: 1px solid #D4D61C;
+    color: #ffffff;
+    text-align: center;
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    background-color: #2A2E36;
+    border: 1px solid #D4D61C;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.payment-methods {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-methods h3 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.payment-option {
+    background-color: #2A2E36;
+    border: 1px solid #D4D61C;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.payment-option label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #ffffff;
+}
+
+.installments, .discount {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.cart-summary {
+    background-color: #1F2937;
+    border-radius: 12px;
+    padding: 2rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #D4D61C;
+    color: #000000;
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.continue-shopping-btn {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #D4D61C;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.payment-icons img {
+    height: 24px;
+    opacity: 0.7;
+}
+
+@media (min-width: 1024px) {
+    .cart-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Estilos específicos para o submenu de espingardas */
+.espingardas-menu .dropdown-content {
+    display: flex;
+    width: 800px;
+    background: linear-gradient(to right, #2A2E36 60%, #3A4149 40%);
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.menu-items {
+    width: 60%;
+    padding: 1.5rem;
+}
+
+.dropdown-header {
+    margin-bottom: 1.5rem;
+}
+
+.dropdown-header span {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.dropdown-header .header-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.espingarda-item {
+    display: flex;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.espingarda-item:hover {
+    background-color: rgba(42, 82, 120, 0.8); /* Fundo azul no hover */
+    border-color: #D4D61C; /* Borda amarela no hover */
+}
+
+.espingarda-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.caliber-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 4px;
+}
+
+.caliber-dot.yellow {
+    background-color: #D4D61C;
+}
+
+.espingarda-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.espingarda-title {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.espingarda-item:hover .espingarda-title {
+    color: #D4D61C; /* Título amarelo no hover */
+}
+
+.espingarda-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+/* Preview da imagem */
+.preview-container {
+    width: 40%;
+    background: linear-gradient(135deg, #3A4149 0%, #2A2E36 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.preview-image {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.preview-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.preview-text {
+    position: absolute;
+    bottom: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilos para o submenu de treinamentos */
+.treinamentos-menu {
+    background-color: #2A2E36 !important; /* Cinza escuro */
+    border: 2px solid #2A5278 !important; /* Borda azul */
+    min-width: 800px;
+    padding: 1.5rem;
+}
+
+.treinamentos-menu .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.treinamentos-menu .card {
+    background-color: #1F2937; /* Cinza mais escuro */
+    border: 1px solid #2A5278; /* Borda azul */
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.treinamentos-menu .card:hover {
+    border-color: #3A7BBF; /* Azul mais claro no hover */
+    background-color: rgba(42, 82, 120, 0.8); /* Fundo azul no hover */
+}
+
+.treinamentos-menu .card h2 {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.treinamentos-menu .card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.treinamentos-menu .level {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-left: auto;
+}
+
+.treinamentos-menu .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #2A5278; /* Azul */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.treinamentos-menu .btn:hover {
+    background-color: #3A7BBF; /* Azul mais claro */
+}
+
+/* Cores dos níveis */
+.treinamentos-menu .level.yellow { background-color: rgba(212, 214, 28, 0.1); color: #D4D61C; }
+.treinamentos-menu .level.green { background-color: rgba(34, 197, 94, 0.1); color: #22C55E; }
+.treinamentos-menu .level.orange { background-color: rgba(234, 88, 12, 0.1); color: #EA580C; }
+.treinamentos-menu .level.gray { background-color: rgba(156, 163, 175, 0.1); color: #9CA3AF; }
+
+/* Estilos para a página de lista de desejos */
+.wishlist-page {
+    background-color: #000000;
+    min-height: calc(100vh - 120px);
+    padding: 2rem;
+}
+
+.wishlist-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #1F2937;
+    border: 2px solid #D4D61C;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.wishlist-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wishlist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: #2A2E36;
+    border: 1px solid #D4D61C;
+    border-radius: 8px;
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-info .price {
+    color: #D4D61C;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.item-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.remove-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+}
+
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #D4D61C;
+    border: none;
+    border-radius: 6px;
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #c1c319;
+}
+
+.view-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background-color: transparent;
+    border: 1px solid #D4D61C;
+    border-radius: 6px;
+    color: #D4D61C;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: rgba(212, 214, 28, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .wishlist-container {
+        margin: 1rem;
+    }
+
+    .wishlist-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Estilos para o submenu da lista de desejos */
+.wishlist-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 400px;
+    background-color: #1F2937;
+    border: 2px solid #D4D61C;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* Mostrar o menu quando hover no ícone */
+.icon:hover .wishlist-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.wishlist-title {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wishlist-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: #2A2E36;
+    border: 1px solid #D4D61C;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.item-image {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-info h3 {
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-info .price {
+    color: #D4D61C;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.item-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.remove-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+}
+
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    background-color: #D4D61C;
+    border: none;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #c1c319;
+}
+
+.view-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.75rem;
+    background-color: transparent;
+    border: 1px solid #D4D61C;
+    border-radius: 4px;
+    color: #D4D61C;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.view-all-btn:hover {
+    background-color: rgba(212, 214, 28, 0.1);
+}
+
+/* Estilização da barra de rolagem */
+.wishlist-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wishlist-items::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.wishlist-items::-webkit-scrollbar-thumb {
+    background: #D4D61C;
+    border-radius: 3px;
+}
+
+.wishlist-items::-webkit-scrollbar-thumb:hover {
+    background: #b3b516;
 }

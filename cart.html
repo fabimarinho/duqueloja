@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - DuqueArmasLoja</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <img src="/img/Frame 99.png" class="logo">
+        <nav>
+            <!-- Copiar todo o conteúdo da nav do index.html -->
+        </nav>
+        <div class="right-icons">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar produtos...">
+                <a href="/search" class="icon search-icon">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+            <div class="user-container">
+                <a href="login.html" class="icon user-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+            <a href="/wishlist" class="icon">
+                <i class="fas fa-heart"></i>
+            </a>
+            <a href="cart.html" class="icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="cart-container">
+            <div class="cart-header">
+                <a href="/" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar para loja
+                </a>
+            </div>
+
+            <div class="cart-title">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Meu Carrinho</h2>
+                <span class="items-count">1 item</span>
+            </div>
+
+            <div class="cart-content">
+                <div class="cart-main">
+                    <div class="cart-table">
+                        <div class="table-header">
+                            <span>Produto</span>
+                            <span>Quantidade</span>
+                            <span>Subtotal</span>
+                        </div>
+                        
+                        <div class="cart-item">
+                            <div class="product-info">
+                                <img src="/img/pistola-glock.jpg" alt="Pistola Glock G19 Gen5">
+                                <div class="product-details">
+                                    <h4>Pistola Glock G19 Gen5</h4>
+                                    <p class="price">R$ 4.950,00</p>
+                                    <button class="remove-item">Remover</button>
+                                </div>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <div class="subtotal">
+                                <span>R$ 75,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-actions">
+                        <div class="promo-code">
+                            <button class="action-btn">
+                                <i class="fas fa-calculator"></i>
+                                Calcular Frete
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-tag"></i>
+                                Cupom de Desconto
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h3>Formas de Pagamento</h3>
+                        <div class="payment-option credit-card">
+                            <input type="radio" name="payment" id="credit-card" checked>
+                            <label for="credit-card">
+                                <i class="fas fa-credit-card"></i>
+                                Cartão de Crédito
+                                <span class="installments">Parcelamento em até 12x de R$ 625,00</span>
+                                <span class="total-price">Valor total: R$ 75,00</span>
+                            </label>
+                        </div>
+                        <div class="payment-option bank-slip">
+                            <input type="radio" name="payment" id="bank-slip">
+                            <label for="bank-slip">
+                                <i class="fas fa-barcode"></i>
+                                Boleto bancário
+                                <span class="discount">5% de desconto para pagamento à vista</span>
+                                <span class="total-price">Valor com desconto: R$ 71,25</span>
+                            </label>
+                        </div>
+                        <div class="payment-option pix">
+                            <input type="radio" name="payment" id="pix">
+                            <label for="pix">
+                                <i class="fas fa-qrcode"></i>
+                                Confirmação instantânea, pedido processado rapidamente
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <h3>Resumo da Compra</h3>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span>R$ 75,00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Desconto</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>R$ 75,00</span>
+                    </div>
+                    <p class="shipping-info">
+                        <i class="fas fa-truck"></i>
+                        Calcule o frete e o prazo de entrega
+                    </p>
+                    <button class="checkout-btn">Finalizar Compra</button>
+                    <button class="continue-shopping-btn">Continuar Comprando</button>
+                    <div class="payment-icons">
+                        <img src="/img/payment/debito.png" alt="Débito">
+                        <img src="/img/payment/credito.png" alt="Crédito">
+                        <img src="/img/payment/pix.png" alt="PIX">
+                        <img src="/img/payment/boleto.png" alt="Boleto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Rua Exemplo, 123 - Rio de Janeiro, RJ
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            (21) 5555-5555
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            contato@duquearmasloja.com
+                        </li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="/sobre">Sobre Nós</a></li>
+                        <li><a href="/politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="/termos">Termos de Uso</a></li>
+                        <li><a href="/faq">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fas fa-barcode"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="payment-section">
+                        <h3>Segurança</h3>
+                        <div class="payment-icons">
+                            <i class="fas fa-lock"></i>
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <span>© 2024 DuqueArmasLoja. Todos os direitos reservados.</span>
+                    <span>CNPJ: 00.000.000/0001-00</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
