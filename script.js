@@ -161,4 +161,31 @@ document.addEventListener('DOMContentLoaded', function() {
             loginMenu.style.transform = 'translateY(10px)';
         }
     });
+
+    // Gerencia o clique no item "Todos os Produtos"
+    const todosOsProdutosLink = document.querySelector('.dropdown-menu .main-item');
+    
+    todosOsProdutosLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'todos-produtos.html';
+    });
+
+    // Gerencia o clique no item "Mais Vendidos"
+    const maisVendidosLink = document.querySelectorAll('.dropdown-menu .main-item')[1];
+    
+    maisVendidosLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'mais-vendidos.html';
+    });
+
+    // Fecha o dropdown menu após o clique
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    dropdownMenus.forEach(menu => {
+        menu.addEventListener('click', function(e) {
+            if (e.target.classList.contains('dropdown-item')) {
+                this.style.opacity = '0';
+                this.style.visibility = 'hidden';
+            }
+        });
+    });
 });

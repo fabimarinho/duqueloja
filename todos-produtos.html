@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Produtos - Duque Armas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header copiado do index.html -->
+    <header>...</header>
+
+    <main class="products-page">
+        <div class="products-header">
+            <h1>Todos os Produtos</h1>
+            <p>Veja nossa coleção completa de armamentos, acessórios e equipamentos de treinamento.</p>
+        </div>
+
+        <div class="products-container">
+            <!-- Filtros -->
+            <aside class="filters-sidebar">
+                <div class="filter-group">
+                    <h3>Tipo de Produto</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="pistolas">
+                            Pistolas
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="revolveres">
+                            Revólveres
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="espingardas">
+                            Espingardas
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="rifles">
+                            Rifles
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="acessorios">
+                            Acessórios
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Calibre</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="caliber" value="9mm">
+                            9mm
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="caliber" value="380">
+                            .380
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="caliber" value="40">
+                            .40
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="caliber" value="45">
+                            .45
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Marca</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="glock">
+                            Glock
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="taurus">
+                            Taurus
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="smith-wesson">
+                            Smith & Wesson
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Faixa de Preço</h3>
+                    <div class="price-range">
+                        <input type="range" min="0" max="10000" step="100" class="price-slider">
+                        <div class="price-inputs">
+                            <input type="number" class="min-price" placeholder="Min">
+                            <input type="number" class="max-price" placeholder="Max">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Avaliação</h3>
+                    <div class="rating-options">
+                        <label class="rating-option">
+                            <input type="radio" name="rating" value="5">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="rating-option">
+                            <input type="radio" name="rating" value="4">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Grid de Produtos -->
+            <div class="products-grid">
+                <!-- Exemplo de Card de Produto -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/img/pistola-glock.jpg" alt="Pistola Glock G19 Gen5">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pistola Glock G19 Gen5</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>(4.5)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">R$ 4.950,00</span>
+                            <span class="installments">10x de R$ 495,00</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mais cards de produtos aqui... -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer copiado do index.html -->
+    <footer>...</footer>
+</body>
+</html> 
